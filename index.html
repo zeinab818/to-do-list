@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LLIST</title>
+    <link rel="shortcut icon" href="images/5471526.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Cedarville+Cursive&family=Comfortaa:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nerko+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+<body>
+    
+    <main>
+        <div class="container min-vh-100 d-flex justify-content-center align-items-center flex-column text-white">
+            <div class="w-50 f-section d-flex justify-content-center align-items-center flex-column text-center">
+                <h1 class="text-uppercase mb-4">
+                <i class="fa-solid fa-list"></i> TO-DO LIST
+                </h1>
+
+                <!-- Add Task -->
+                
+                <input type="text" id="searchInput" class="form-control" placeholder="search about your task here...">
+                
+                <div class="input-group mb-4 w-100  mt-5">
+                
+                    <input type="text" id="taskInput" class="form-control" placeholder="Write your task here...">
+                    <button id="addBtn" onclick="addTask()"  class="btn btn-primary neon-btn">Add</button>
+                
+                </div>
+
+                <!-- Tabs -->
+                <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-today-tab" data-filter="today" data-bs-toggle="pill" data-bs-target="#pills-today" type="button" role="tab" aria-controls="pills-today" aria-selected="true">Today</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-week-tab" data-filter="week" data-bs-toggle="pill" data-bs-target="#pills-week" type="button" role="tab" aria-controls="pills-week" aria-selected="false">Week</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-month-tab" data-filter="month" data-bs-toggle="pill" data-bs-target="#pills-month" type="button" role="tab" aria-controls="pills-month" aria-selected="false">Month</button>
+                </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content w-100 px-3" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-today" role="tabpanel">
+                        <ul class="list-group" id="todayTasks">
+                            
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="pills-week" role="tabpanel">
+                        <ul class="list-group" id="weekTasks"></ul>
+                    </div>
+                    <div class="tab-pane fade" id="pills-month" role="tabpanel">
+                        <ul class="list-group" id="monthTasks"></ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+    </main>
+    <script src="js/bootstrap.js"></script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

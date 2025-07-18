@@ -1,0 +1,80 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+::selection{
+    background-color: #A259FF;
+    color: black;
+}
+
+body{
+    background-image: url(../images/v760-toon-86.jpg);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+}
+
+
+h1 {
+    color: #FF99CC;
+    text-shadow: 0 0 20px #A259FF;
+    background-color: white;
+    padding: 10px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 0.5px black;
+}
+
+.nav-link {
+    color: black;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.nav-link.active {
+    background-color: #A259FF !important;
+    box-shadow: 0 0 10px #C58CFF !important;
+    color: black;
+
+}
+
+.neon-btn {
+    background-color: #FF99CC;
+    border: none;
+    box-shadow: 0 0 10px #FF99CC;
+}
+
+.neon-btn:hover {
+    background-color: #FFB3DD !important;
+    box-shadow: 0 0 20px #FF99CC !important;
+}
+
+.list-group-item {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    backdrop-filter: blur(5px);
+    margin-bottom: 10px;
+    border-left: 5px solid #A259FF;
+    font-size: 25px;
+    font-weight: 700;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+
+.list-group-item .icons{
+    color: #FF99CC;
+    cursor: pointer;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+
+
+@media screen and (max-width:900px) 
+{
+    main .container .f-section{
+        width: 100% !important;
+    }    
+}
