@@ -10,15 +10,18 @@
     color: black;
 }
 
+
+
 body{
     background-image: url(../images/v760-toon-86.jpg);
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
-
 }
-
-
+.fa-moon{
+    font-size: 20px;
+    color:#FF99CC ;
+}
 h1 {
     color: #FF99CC;
     text-shadow: 0 0 20px #A259FF;
@@ -63,18 +66,36 @@ h1 {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
 }
 
-.list-group-item .icons{
+
+
+.list-group-item .icons .beforeCheck{
+    padding-left: 20px;
+    font-size: 25px;
     color: #FF99CC;
     cursor: pointer;
-    font-size: 20px;
-    padding-left: 10px;
+
+
+
 }
-
-
+.afterCheck{
+    padding-left: 20px;
+    font-size: 25px;
+    color: white !important;
+    cursor: pointer;
+}
 
 @media screen and (max-width:900px) 
 {
     main .container .f-section{
         width: 100% !important;
     }    
+}
+
+.check {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color:   #A259FF;
+    margin-right: 10px;
+    
 }
