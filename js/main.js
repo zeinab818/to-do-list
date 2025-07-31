@@ -4,7 +4,7 @@
 let textInput = document.getElementById('taskInput');
 let add = document.getElementById('addBtn');
 let searchInput = document.getElementById('searchInput');
-const taskDate = document.getElementById("taskDate").value;
+
 
 let tasks = {
   today: [],
