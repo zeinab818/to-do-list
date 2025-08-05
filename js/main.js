@@ -4,6 +4,7 @@
 let textInput = document.getElementById('taskInput');
 let add = document.getElementById('addBtn');
 let searchInput = document.getElementById('searchInput');
+let scrollll=document.getElementById('scrollll');
 
 
 let tasks = {
@@ -34,13 +35,30 @@ document.querySelectorAll('.nav-link').forEach(btn => {
 
 function addTask() {
   let text = textInput.value.trim();
-  if (text === '') return;
+  if (text === '') {
+    alert("Please enter a task");
+    return;
+  }
 
-  tasks[currentTab].push({ text: text, checked: false });
+  let task = { text: text, checked: false };
+
+  // لو Week أو Month نضيف التاريخ
+  if (currentTab === 'week' || currentTab === 'month') {
+    task.date = new Date().toLocaleDateString(); //  مثلاً: 8/5/2025
+  }
+
+  tasks[currentTab].push(task);
   saveTasks();
   display(tasks[currentTab]);
   textInput.value = '';
+setTimeout(() => {
+  const taskList = document.getElementById(`${currentTab}Tasks`);
+  taskList.lastElementChild?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+}, 100);
+
+
 }
+
 
 function display(arr) {
   let activeTabList = document.getElementById(`${currentTab}Tasks`);
@@ -51,12 +69,17 @@ function display(arr) {
     cartoona += `
       <li class="text-dark list-group-item d-flex justify-content-between align-items-center" style="background-color: ${task.checked ? 'rgba(162, 89, 255, 0.3)' : ''}">
         <input type="checkbox" class="check" onchange="toggleChecked(${i})" ${task.checked ? 'checked' : ''} style="background-color: ${task.checked ? '#FF99CC' : ''}">
-        <span class="task-text" style="text-decoration: ${task.checked ? 'line-through' : 'none'}">${task.text}</span>
+
+        <span class="task-text" style="text-decoration: ${task.checked ? 'line-through' : 'none'}">
+          ${task.text} ${task.date ? `<small class="text-muted ms-2">(${task.date}) </small>` : ''}
+        </span>
+
         <div class="icons">
-            <i class="fa-solid fa-pen-to-square ${task.checked ? 'afterCheck' : 'beforeCheck'}" onclick="updateForm(${i})"></i>
-            <i class="fa-solid fa-xmark ${task.checked ? 'afterCheck' : 'beforeCheck'}" onclick="deleteTask(${i})"></i>
+          <a href="#scrollll"><i class="fa-solid fa-pen-to-square ${task.checked ? 'afterCheck' : 'beforeCheck'}" onclick="updateForm(${i})"></i></a>
+          <i class="fa-solid fa-xmark ${task.checked ? 'afterCheck' : 'beforeCheck'}" onclick="deleteTask(${i})"></i>
         </div>
       </li>`;
+
   }
 
   activeTabList.innerHTML = cartoona;
@@ -77,18 +100,41 @@ function deleteTask(index) {
 function updateForm(index) {
   textInput.value = tasks[currentTab][index].text;
   currentUpdateIndex = index;
+
   add.innerText = "Update Task";
   add.onclick = getUpdate;
+
+  // Focus على input
+  setTimeout(() => {
+    textInput.focus();
+    textInput.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, 100);
+
+
 }
+
 
 function getUpdate() {
   let updatedText = textInput.value.trim();
-  if (updatedText === '') return;
+  if (updatedText === ''){
+    alert("Please enter a task");
+    return;
+  }
+  
 
   tasks[currentTab][currentUpdateIndex].text = updatedText;
   saveTasks();
   resetForm();
   display(tasks[currentTab]);
+  setTimeout(() => {
+    const taskList = document.getElementById(`${currentTab}Tasks`);
+    const updatedItem = taskList.children[currentUpdateIndex];
+    if (updatedItem) {
+      updatedItem.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+  }, 100);
+ 
 }
 
 function resetForm() {
